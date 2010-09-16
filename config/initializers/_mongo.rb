@@ -3,9 +3,10 @@
 #   the COPYRIGHT file.
 
 
-MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+MongoMapper.connection = Mongo::Connection.new('flame.mongohq.com', 27050)
 
 MongoMapper.database = "diaspora-#{Rails.env}"
+MongoMapper.database.authenticate('diaspora-user', 'sekretp4ssword')
 
 if defined?(PhusionPassenger)
    PhusionPassenger.on_event(:starting_worker_process) do |forked|
